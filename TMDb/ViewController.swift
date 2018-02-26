@@ -1,25 +1,17 @@
-//
-//  ViewController.swift
-//  TMDb
-//
-//  Created by Claus Höfele on 26.02.18.
-//  Copyright © 2018 Claus Höfele. All rights reserved.
-//
-
 import UIKit
+import TMDbKit
 
 class ViewController: UIViewController {
+    let client = Client(baseURL: URL(string: "https://api.themoviedb.org/3/")!, accessToken: "2696829a81b1b5827d515ff121700838")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        client.search(searchTerm: "batman") { result in
+            switch (result) {
+            case .success(let page): print("Successfully retrieved \(page.movies.count) movie(s)")
+            case .failure(let error): print("Error \(error)")
+            }
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
-

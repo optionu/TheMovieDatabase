@@ -2,12 +2,12 @@ import Foundation
 
 /// TMDb client.
 public class Client {
-    let baseURL: URL
-    let accessToken: String
-    let session: URLSession
-    let timeoutInterval: TimeInterval
+    public let baseURL: URL
+    public let accessToken: String
+    public let session: URLSession
+    public let timeoutInterval: TimeInterval
 
-    init(baseURL: URL,
+    public init(baseURL: URL,
          accessToken: String,
          session: URLSession = .shared,
          timeoutInterval: TimeInterval = 30) {
@@ -15,6 +15,14 @@ public class Client {
         self.accessToken = accessToken
         self.session = session
         self.timeoutInterval = timeoutInterval
+    }
+
+    public func search(searchTerm: String, completion: @escaping (Result<Page>) -> Void) {
+        let resource = Resource<Page>(basePath: baseURL,
+                                      path: "search/movie",
+                                      parameters: ["api_key": accessToken, "query": searchTerm, "page": "1"],
+                                      parse: parseJSON)
+        runRequest(for: resource, completion: completion)
     }
 
     func runRequest<Model>(for resource: Resource<Model>, completion: @escaping (Result<Model>) -> Void) {

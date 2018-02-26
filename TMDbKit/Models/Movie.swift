@@ -1,12 +1,12 @@
 import Foundation
 
 /// Value object representing a movie.
-struct Movie: Decodable {
-    let title: String?
-    let releaseDate: Date?
-    let posterPath: String?
+public struct Movie: Decodable {
+    public let title: String?
+    public let releaseDate: Date?
+    public let posterPath: String?
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         title = try container.decode(String.self, forKey: .title)
         posterPath = try container.decode(String.self, forKey: .posterPath)

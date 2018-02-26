@@ -1,10 +1,10 @@
 import Foundation
 
 /// Value object representing a page of movie data.
-struct Page: Decodable {
-    let pageNumber: Int
-    let totalNumberOfPages: Int
-    let movies: [Movie]
+public struct Page: Decodable {
+    public let pageNumber: Int
+    public let totalNumberOfPages: Int
+    public let movies: [Movie]
 
     enum CodingKeys: String, CodingKey {
         case pageNumber = "page"
