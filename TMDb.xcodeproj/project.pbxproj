@@ -31,6 +31,8 @@
 		03DA271C20449D820067350D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA271B20449D820067350D /* Movie.swift */; };
 		03DA271E2044A4610067350D /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA271D2044A4600067350D /* Client.swift */; };
 		03DA27202044A47D0067350D /* ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA271F2044A47D0067350D /* ClientTests.swift */; };
+		03DA27232044A87D0067350D /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA27222044A87D0067350D /* URLSessionMock.swift */; };
+		03DA27252044A8D80067350D /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA27242044A8D80067350D /* URLSessionDataTaskMock.swift */; };
 		99E65886F75D2DDE82AD4AD1 /* Pods_TMDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D97CDC6D829CAB32C54549 /* Pods_TMDb.framework */; };
 		9CC8E9F6FF28DE8D320727CF /* Pods_TMDbKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F4D409812DC1D9268A3D06 /* Pods_TMDbKitTests.framework */; };
 		EE9410FE5C4ECD6486E4CCA8 /* Pods_TMDbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE203667CBBB3134B2458A54 /* Pods_TMDbTests.framework */; };
@@ -111,6 +113,8 @@
 		03DA271B20449D820067350D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		03DA271D2044A4600067350D /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		03DA271F2044A47D0067350D /* ClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTests.swift; sourceTree = "<group>"; };
+		03DA27222044A87D0067350D /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		03DA27242044A8D80067350D /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
 		1460D15CA33AC74CED7DCD86 /* Pods-TMDbTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDbTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TMDbTests/Pods-TMDbTests.debug.xcconfig"; sourceTree = "<group>"; };
 		15D2D29462A3FC9EDD4843DD /* Pods-TMDbTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDbTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TMDbTests/Pods-TMDbTests.release.xcconfig"; sourceTree = "<group>"; };
 		916E6C6CF185476BA8F40956 /* Pods-TMDb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDb.release.xcconfig"; path = "Pods/Target Support Files/Pods-TMDb/Pods-TMDb.release.xcconfig"; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 				03DA271F2044A47D0067350D /* ClientTests.swift */,
 				03DA2705204495F50067350D /* Fixtures */,
 				0386483E204476060019B24A /* Info.plist */,
+				03DA27212044A8600067350D /* Mocks */,
 				03DA271120449AD90067350D /* Parsers */,
 				0386483C204476060019B24A /* ResourceTests.swift */,
 			);
@@ -266,6 +271,15 @@
 				03DA271B20449D820067350D /* Movie.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		03DA27212044A8600067350D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				03DA27222044A87D0067350D /* URLSessionMock.swift */,
+				03DA27242044A8D80067350D /* URLSessionDataTaskMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		5904FF4A7F653D6192F46B1B /* Pods */ = {
@@ -670,10 +684,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03DA27232044A87D0067350D /* URLSessionMock.swift in Sources */,
 				03DA271520449AD90067350D /* JSONParserTests.swift in Sources */,
 				03DA271420449AD90067350D /* ImageParserTests.swift in Sources */,
 				03DA27202044A47D0067350D /* ClientTests.swift in Sources */,
 				0386483D204476060019B24A /* ResourceTests.swift in Sources */,
+				03DA27252044A8D80067350D /* URLSessionDataTaskMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

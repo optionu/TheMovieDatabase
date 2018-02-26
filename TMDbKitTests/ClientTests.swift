@@ -22,6 +22,41 @@ class ClientTests: QuickSpec {
                     expect(client?.session).to(equal(URLSession.shared))
                 }
             }
+
+            context("when executing a request") {
+                struct Model: Decodable {
+                    let name: String
+                }
+
+                var client: Client?
+                var session: URLSessionMock?
+                var resource: Resource<Model>?
+
+                beforeEach {
+                    session = URLSessionMock()
+                    client = Client(baseURL: URL(string: "http://api.themoviedb.org/3/")!,
+                                    accessToken: "accessToken",
+                                    session: session!)
+                    resource = Resource<Model>(basePath: URL(string: "https://api.themoviedb.org/3/")!,
+                                               path: "",
+                                               parameters: [:],
+                                               parse: parseJSON)
+                }
+
+                it("it calls the completion handler for valid data") {
+                    session?.data = "{ \"name\": \"name\" }".data(using: .utf8)!
+                    var result: Result<Model>?
+                    client?.runRequest(for: resource!) { result = $0 }
+                    expect(result).toNot(beNil())
+                }
+
+                it("it calls the completion handler for errors") {
+                    session?.error = NSError(domain: "domain", code: 1)
+                    var result: Result<Model>?
+                    client?.runRequest(for: resource!) { result = $0 }
+                    expect(result).toNot(beNil())
+                }
+            }
         }
     }
 }

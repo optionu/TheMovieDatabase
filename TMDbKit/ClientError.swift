@@ -4,4 +4,7 @@ import Foundation
 public enum ClientError: Error {
     case invalidJSON
     case invalidImage
+    case invalidURL
+    case invalidData
+    case requestFailed
 }
