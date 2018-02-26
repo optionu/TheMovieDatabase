@@ -3,15 +3,18 @@ import Foundation
 /// TMDb client.
 public class Client {
     public let baseURL: URL
+    public let baseURLImage: URL
     public let accessToken: String
     public let session: URLSession
     public let timeoutInterval: TimeInterval
 
     public init(baseURL: URL,
-         accessToken: String,
-         session: URLSession = .shared,
-         timeoutInterval: TimeInterval = 30) {
+                baseURLImage: URL,
+                accessToken: String,
+                session: URLSession = .shared,
+                timeoutInterval: TimeInterval = 30) {
         self.baseURL = baseURL
+        self.baseURLImage = baseURLImage
         self.accessToken = accessToken
         self.session = session
         self.timeoutInterval = timeoutInterval
@@ -22,6 +25,14 @@ public class Client {
                                       path: "search/movie",
                                       parameters: ["api_key": accessToken, "query": searchTerm, "page": "1"],
                                       parse: parseJSON)
+        runRequest(for: resource, completion: completion)
+    }
+
+    public func loadImage(imagePath: String, completion: @escaping (Result<UIImage>) -> Void) {
+        let resource = Resource<UIImage>(basePath: baseURLImage,
+                                         path: "t/p/w92" + imagePath,
+                                         parameters: [:],
+                                         parse: parseImage)
         runRequest(for: resource, completion: completion)
     }
 
