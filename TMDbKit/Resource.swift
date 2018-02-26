@@ -1,10 +1,11 @@
 import Foundation
 
 /// A value describing a REST endpoint.
-struct Resource {
+struct Resource<Model> {
     let basePath: URL
     let path: String
     let parameters: [String: String]
+    let parse: (Data) -> Result<Model>
 
     /// Returns request URL based on resource parameters.
     func request() -> URL? {

@@ -19,6 +19,9 @@
 		03864842204476060019B24A /* TMDbKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386482D204476060019B24A /* TMDbKit.framework */; };
 		03864843204476060019B24A /* TMDbKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0386482D204476060019B24A /* TMDbKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03CB67AA204479D800BAF40F /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CB67A9204479D800BAF40F /* Resource.swift */; };
+		03CB67B420448AD400BAF40F /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CB67B320448AD400BAF40F /* Result.swift */; };
+		03CB67B620448B4F00BAF40F /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CB67B520448B4F00BAF40F /* JSONParser.swift */; };
+		03CB67B820448BD100BAF40F /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CB67B720448BD100BAF40F /* ClientError.swift */; };
 		99E65886F75D2DDE82AD4AD1 /* Pods_TMDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D97CDC6D829CAB32C54549 /* Pods_TMDb.framework */; };
 		9CC8E9F6FF28DE8D320727CF /* Pods_TMDbKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F4D409812DC1D9268A3D06 /* Pods_TMDbKitTests.framework */; };
 		EE9410FE5C4ECD6486E4CCA8 /* Pods_TMDbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE203667CBBB3134B2458A54 /* Pods_TMDbTests.framework */; };
@@ -87,6 +90,9 @@
 		0386483C204476060019B24A /* ResourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceTests.swift; sourceTree = "<group>"; };
 		0386483E204476060019B24A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03CB67A9204479D800BAF40F /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		03CB67B320448AD400BAF40F /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		03CB67B520448B4F00BAF40F /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		03CB67B720448BD100BAF40F /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
 		1460D15CA33AC74CED7DCD86 /* Pods-TMDbTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDbTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TMDbTests/Pods-TMDbTests.debug.xcconfig"; sourceTree = "<group>"; };
 		15D2D29462A3FC9EDD4843DD /* Pods-TMDbTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDbTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TMDbTests/Pods-TMDbTests.release.xcconfig"; sourceTree = "<group>"; };
 		916E6C6CF185476BA8F40956 /* Pods-TMDb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDb.release.xcconfig"; path = "Pods/Target Support Files/Pods-TMDb/Pods-TMDb.release.xcconfig"; sourceTree = "<group>"; };
@@ -184,9 +190,12 @@
 		0386482E204476060019B24A /* TMDbKit */ = {
 			isa = PBXGroup;
 			children = (
-				0386482F204476060019B24A /* TMDbKit.h */,
 				03864830204476060019B24A /* Info.plist */,
+				03CB67B520448B4F00BAF40F /* JSONParser.swift */,
+				03CB67B720448BD100BAF40F /* ClientError.swift */,
 				03CB67A9204479D800BAF40F /* Resource.swift */,
+				03CB67B320448AD400BAF40F /* Result.swift */,
+				0386482F204476060019B24A /* TMDbKit.h */,
 			);
 			path = TMDbKit;
 			sourceTree = "<group>";
@@ -194,8 +203,8 @@
 		0386483B204476060019B24A /* TMDbKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				0386483C204476060019B24A /* ResourceTests.swift */,
 				0386483E204476060019B24A /* Info.plist */,
+				0386483C204476060019B24A /* ResourceTests.swift */,
 			);
 			path = TMDbKitTests;
 			sourceTree = "<group>";
@@ -585,7 +594,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03CB67B420448AD400BAF40F /* Result.swift in Sources */,
+				03CB67B820448BD100BAF40F /* ClientError.swift in Sources */,
 				03CB67AA204479D800BAF40F /* Resource.swift in Sources */,
+				03CB67B620448B4F00BAF40F /* JSONParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
