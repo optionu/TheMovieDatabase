@@ -1,11 +1,3 @@
-//
-//  TMDbKit.h
-//  TMDbKit
-//
-//  Created by Claus Höfele on 26.02.18.
-//  Copyright © 2018 Claus Höfele. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
 //! Project version number for TMDbKit.
