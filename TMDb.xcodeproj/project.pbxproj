@@ -11,7 +11,6 @@
 		031F67FE20447497005A339E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 031F67FC20447497005A339E /* Main.storyboard */; };
 		031F680020447497005A339E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 031F67FF20447497005A339E /* Assets.xcassets */; };
 		031F680320447497005A339E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 031F680120447497005A339E /* LaunchScreen.storyboard */; };
-		031F680E20447497005A339E /* TMDbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F680D20447497005A339E /* TMDbTests.swift */; };
 		03864836204476060019B24A /* TMDbKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386482D204476060019B24A /* TMDbKit.framework */; };
 		0386483D204476060019B24A /* ResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0386483C204476060019B24A /* ResourceTests.swift */; };
 		0386483F204476060019B24A /* TMDbKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 0386482F204476060019B24A /* TMDbKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +22,11 @@
 		03AD2ECA2045A9C00060DABF /* SearchTableDisplaySupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AD2EC72045A9C00060DABF /* SearchTableDisplaySupport.swift */; };
 		03AD2ECB2045A9C00060DABF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AD2EC82045A9C00060DABF /* SearchViewController.swift */; };
 		03AD2ECD2045C0490060DABF /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AD2ECC2045C0490060DABF /* SearchTableCell.swift */; };
+		03B3C7F62045D1150085B430 /* SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C7F52045D1150085B430 /* SearchHistory.swift */; };
+		03B3C7F82045D1490085B430 /* HistoryPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C7F72045D1490085B430 /* HistoryPersistence.swift */; };
+		03B3C7FA2045D2050085B430 /* UserDefaultsPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C7F92045D2050085B430 /* UserDefaultsPersistence.swift */; };
+		03B3C7FD2045D2840085B430 /* MockPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C7FC2045D2840085B430 /* MockPersistence.swift */; };
+		03B3C8022045D3800085B430 /* SearchHistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B3C8012045D3800085B430 /* SearchHistoryTests.swift */; };
 		03CB67AA204479D800BAF40F /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CB67A9204479D800BAF40F /* Resource.swift */; };
 		03CB67B420448AD400BAF40F /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CB67B320448AD400BAF40F /* Result.swift */; };
 		03CB67B820448BD100BAF40F /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CB67B720448BD100BAF40F /* ClientError.swift */; };
@@ -96,7 +100,6 @@
 		031F680220447497005A339E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		031F680420447497005A339E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		031F680920447497005A339E /* TMDbTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDbTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		031F680D20447497005A339E /* TMDbTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDbTests.swift; sourceTree = "<group>"; };
 		031F680F20447497005A339E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0386482D204476060019B24A /* TMDbKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TMDbKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0386482F204476060019B24A /* TMDbKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMDbKit.h; sourceTree = "<group>"; };
@@ -110,6 +113,11 @@
 		03AD2EC72045A9C00060DABF /* SearchTableDisplaySupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableDisplaySupport.swift; sourceTree = "<group>"; };
 		03AD2EC82045A9C00060DABF /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		03AD2ECC2045C0490060DABF /* SearchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
+		03B3C7F52045D1150085B430 /* SearchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistory.swift; sourceTree = "<group>"; };
+		03B3C7F72045D1490085B430 /* HistoryPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPersistence.swift; sourceTree = "<group>"; };
+		03B3C7F92045D2050085B430 /* UserDefaultsPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPersistence.swift; sourceTree = "<group>"; };
+		03B3C7FC2045D2840085B430 /* MockPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPersistence.swift; sourceTree = "<group>"; };
+		03B3C8012045D3800085B430 /* SearchHistoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistoryTests.swift; sourceTree = "<group>"; };
 		03CB67A9204479D800BAF40F /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		03CB67B320448AD400BAF40F /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		03CB67B720448BD100BAF40F /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
@@ -201,13 +209,14 @@
 			isa = PBXGroup;
 			children = (
 				031F67F820447497005A339E /* AppDelegate.swift */,
-				03AD2EC52045A9C00060DABF /* Search */,
-				03AD2EBF2045951B0060DABF /* Extensions.swift */,
-				031F67FC20447497005A339E /* Main.storyboard */,
 				031F67FF20447497005A339E /* Assets.xcassets */,
-				031F680120447497005A339E /* LaunchScreen.storyboard */,
+				03AD2EBF2045951B0060DABF /* Extensions.swift */,
+				03B3C7F42045D0B70085B430 /* History */,
+				03AD2EC52045A9C00060DABF /* Search */,
 				031F680420447497005A339E /* Info.plist */,
+				031F680120447497005A339E /* LaunchScreen.storyboard */,
 				03AD2EBD2045941F0060DABF /* Localizable.strings */,
+				031F67FC20447497005A339E /* Main.storyboard */,
 			);
 			path = TMDb;
 			sourceTree = "<group>";
@@ -215,8 +224,9 @@
 		031F680C20447497005A339E /* TMDbTests */ = {
 			isa = PBXGroup;
 			children = (
-				031F680D20447497005A339E /* TMDbTests.swift */,
+				03B3C8002045D3800085B430 /* History */,
 				031F680F20447497005A339E /* Info.plist */,
+				03B3C7FB2045D2700085B430 /* Mocks */,
 			);
 			path = TMDbTests;
 			sourceTree = "<group>";
@@ -258,6 +268,32 @@
 				03AD2ECC2045C0490060DABF /* SearchTableCell.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		03B3C7F42045D0B70085B430 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				03B3C7F52045D1150085B430 /* SearchHistory.swift */,
+				03B3C7F72045D1490085B430 /* HistoryPersistence.swift */,
+				03B3C7F92045D2050085B430 /* UserDefaultsPersistence.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		03B3C7FB2045D2700085B430 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				03B3C7FC2045D2840085B430 /* MockPersistence.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		03B3C8002045D3800085B430 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				03B3C8012045D3800085B430 /* SearchHistoryTests.swift */,
+			);
+			path = History;
 			sourceTree = "<group>";
 		};
 		03DA2705204495F50067350D /* Fixtures */ = {
@@ -678,7 +714,10 @@
 			files = (
 				03AD2ECB2045A9C00060DABF /* SearchViewController.swift in Sources */,
 				03AD2EC92045A9C00060DABF /* SearchDataSource.swift in Sources */,
+				03B3C7F82045D1490085B430 /* HistoryPersistence.swift in Sources */,
 				03AD2ECD2045C0490060DABF /* SearchTableCell.swift in Sources */,
+				03B3C7FA2045D2050085B430 /* UserDefaultsPersistence.swift in Sources */,
+				03B3C7F62045D1150085B430 /* SearchHistory.swift in Sources */,
 				03AD2EC02045951B0060DABF /* Extensions.swift in Sources */,
 				031F67F920447497005A339E /* AppDelegate.swift in Sources */,
 				03AD2ECA2045A9C00060DABF /* SearchTableDisplaySupport.swift in Sources */,
@@ -689,7 +728,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				031F680E20447497005A339E /* TMDbTests.swift in Sources */,
+				03B3C8022045D3800085B430 /* SearchHistoryTests.swift in Sources */,
+				03B3C7FD2045D2840085B430 /* MockPersistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
