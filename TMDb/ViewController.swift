@@ -1,30 +1,35 @@
 import UIKit
 import TMDbKit
 
+/// Search view controller that acts as a hub between different classes that
+/// implement the actual functionality.
 class ViewController: UITableViewController {
     let client = Client(baseURL: URL(string: "https://api.themoviedb.org/3/")!,
                         baseURLImage: URL(string: "https://image.tmdb.org/")!,
                         accessToken: "2696829a81b1b5827d515ff121700838")
 
     let searchController = UISearchController(searchResultsController: nil)
-    var searchResultsUpdater: SearchResultsUpdater?
 
-    let dataSource = DataSource()
+    var dataSource: DataSource?
+    let tableDisplaySupport = TableDisplaySupport()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "search.title".localized
 
-        searchResultsUpdater = SearchResultsUpdater(client: client)
-        searchResultsUpdater?.delegate = self
-
         searchController.dimsBackgroundDuringPresentation = false;
         tableView.tableHeaderView = searchController.searchBar
-        searchController.searchBar.delegate = searchResultsUpdater;
+        searchController.searchBar.delegate = self;
         definesPresentationContext = true
 
+        let dataSource = DataSource(client: client)
+        dataSource.delegate = self
         tableView.dataSource = dataSource
+        self.dataSource = dataSource
+
+        tableView.delegate = tableDisplaySupport
+        tableDisplaySupport.delegate = self
     }
 
     func showAlert(_ message: String) {
@@ -36,19 +41,25 @@ class ViewController: UITableViewController {
     }
 }
 
-extension ViewController: SearchResultsUpdaterDelegate{
-    func searchResultsUpdater(_ searchResultsUpdater: SearchResultsUpdater, didFindResult result: Result<Page>) {
+extension ViewController: UISearchBarDelegate {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        dataSource?.loadFirst(searchTerm: searchBar.text)
         searchController.isActive = false
+    }
+}
 
-        switch result {
-        case .success(let model):
-            dataSource.update(with: model)
-            tableView.reloadData()
-            if model.movies.isEmpty {
-                showAlert("error.empty_results".localized)
-            }
-        case .failure:
-            showAlert("error.network".localized)
-        }
+extension ViewController: DataSourceDelegate {
+    func dataSourceNeedsTableReload(_ dataSource: DataSource) {
+        tableView.reloadData()
+    }
+
+    func dataSourceNeeds(_ dataSource: DataSource, showAlertWith message: String) {
+        showAlert(message)
+    }
+}
+
+extension ViewController: TableDisplaySupportDelegate {
+    func tableDisplaySupportLoadNextPage(_ tableDisplaySupport: TableDisplaySupport) {
+        dataSource?.loadNext()
     }
 }

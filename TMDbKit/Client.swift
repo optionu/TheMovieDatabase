@@ -20,10 +20,10 @@ public class Client {
         self.timeoutInterval = timeoutInterval
     }
 
-    public func search(searchTerm: String, completion: @escaping (Result<Page>) -> Void) {
+    public func search(searchTerm: String, page: Int = 1, completion: @escaping (Result<Page>) -> Void) {
         let resource = Resource<Page>(basePath: baseURL,
                                       path: "search/movie",
-                                      parameters: ["api_key": accessToken, "query": searchTerm, "page": "1"],
+                                      parameters: ["api_key": accessToken, "query": searchTerm, "page": "\(page)"],
                                       parse: parseJSON)
         runRequest(for: resource, completion: completion)
     }

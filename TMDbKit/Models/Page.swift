@@ -11,4 +11,12 @@ public struct Page: Decodable {
         case totalNumberOfPages = "total_pages"
         case movies = "results"
     }
+
+    public func nextPage() -> Int? {
+        if pageNumber < totalNumberOfPages {
+            return pageNumber + 1
+        } else {
+            return nil
+        }
+    }
 }
