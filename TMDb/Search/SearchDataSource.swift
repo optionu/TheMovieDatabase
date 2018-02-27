@@ -1,14 +1,14 @@
 import UIKit
 import TMDbKit
 
-protocol DataSourceDelegate: class {
-    func dataSourceNeedsTableReload(_ dataSource: DataSource)
-    func dataSourceNeeds(_ dataSource: DataSource, showAlertWith message: String)
+protocol SearchDataSourceDelegate: class {
+    func searchDataSourceNeedsTableReload(_ searchDataSource: SearchDataSource)
+    func searchDataSource(_ searchDataSource: SearchDataSource, showAlertWith message: String)
 }
 
-class DataSource: NSObject {
+class SearchDataSource: NSObject {
     let client: Client
-    weak var delegate: DataSourceDelegate?
+    weak var delegate: SearchDataSourceDelegate?
 
     var searchTerm: String?
     var currentPage: Page?
@@ -48,19 +48,19 @@ class DataSource: NSObject {
                 }
                 strongSelf.currentPage = page
                 strongSelf.movies.append(contentsOf: page.movies)
-                strongSelf.delegate?.dataSourceNeedsTableReload(strongSelf)
+                strongSelf.delegate?.searchDataSourceNeedsTableReload(strongSelf)
 
                 if page.movies.isEmpty {
-                    strongSelf.delegate?.dataSourceNeeds(strongSelf, showAlertWith: "error.empty_results".localized)
+                    strongSelf.delegate?.searchDataSource(strongSelf, showAlertWith: "error.empty_results".localized)
                 }
             case .failure:
-                strongSelf.delegate?.dataSourceNeeds(strongSelf, showAlertWith: "error.network".localized)
+                strongSelf.delegate?.searchDataSource(strongSelf, showAlertWith: "error.network".localized)
             }
         }
     }
 }
 
-extension DataSource: UITableViewDataSource {
+extension SearchDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }

@@ -1,11 +1,11 @@
 import UIKit
 
-protocol TableDisplaySupportDelegate: class {
-    func tableDisplaySupportLoadNextPage(_ tableDisplaySupport: TableDisplaySupport)
+protocol SearchTableDisplaySupportDelegate: class {
+    func searchTableDisplaySupportLoadNextPage(_ searchTableDisplaySupport: SearchTableDisplaySupport)
 }
 
-class TableDisplaySupport: NSObject, UITableViewDelegate {
-    weak var delegate: TableDisplaySupportDelegate?
+class SearchTableDisplaySupport: NSObject, UITableViewDelegate {
+    weak var delegate: SearchTableDisplaySupportDelegate?
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let currentOffset = scrollView.contentOffset.y
@@ -13,7 +13,7 @@ class TableDisplaySupport: NSObject, UITableViewDelegate {
 
         // Change 10.0 to adjust the distance from bottom
         if maximumOffset - currentOffset <= 10.0 {
-            delegate?.tableDisplaySupportLoadNextPage(self)
+            delegate?.searchTableDisplaySupportLoadNextPage(self)
         }
     }
 }
