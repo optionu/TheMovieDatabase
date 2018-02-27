@@ -14,6 +14,8 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "search.title".localized
+
         searchResultsUpdater = SearchResultsUpdater(client: client)
         searchResultsUpdater?.delegate = self
 
@@ -26,8 +28,8 @@ class ViewController: UITableViewController {
     }
 
     func showAlert(_ message: String) {
-        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let alertController = UIAlertController(title: "error.title".localized, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "error.ok".localized, style: .default, handler: nil)
         alertController.addAction(defaultAction)
 
         present(alertController, animated: true, completion: nil)
@@ -43,10 +45,10 @@ extension ViewController: SearchResultsUpdaterDelegate{
             dataSource.update(with: model)
             tableView.reloadData()
             if model.movies.isEmpty {
-                showAlert("empty")
+                showAlert("error.empty_results".localized)
             }
         case .failure:
-            showAlert("failure")
+            showAlert("error.network".localized)
         }
     }
 }

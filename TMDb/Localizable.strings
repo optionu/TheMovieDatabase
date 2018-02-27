@@ -1,0 +1,5 @@
+"search.title" = "TMDb";
+"error.ok" = "OK";
+"error.title" = "Error";
+"error.empty_results" = "Could not find any movies.";
+"error.network" = "A network error has occured. Please try again.";
