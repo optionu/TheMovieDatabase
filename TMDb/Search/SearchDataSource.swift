@@ -4,6 +4,7 @@ import TMDbKit
 protocol SearchDataSourceDelegate: class {
     func searchDataSourceNeedsTableReload(_ searchDataSource: SearchDataSource)
     func searchDataSource(_ searchDataSource: SearchDataSource, showAlertWith message: String)
+    func searchDataSource(_ searchDataSource: SearchDataSource, successfulSearchWith searchTerm: String)
 }
 
 class SearchDataSource: NSObject {
@@ -19,7 +20,8 @@ class SearchDataSource: NSObject {
     }
 
     func loadFirst(searchTerm: String?) {
-        if let searchTerm = searchTerm {
+        if let searchTerm = searchTerm,
+            !searchTerm.isEmpty {
             self.searchTerm = searchTerm
             load(page: 1)
         }
@@ -52,6 +54,8 @@ class SearchDataSource: NSObject {
 
                 if page.movies.isEmpty {
                     strongSelf.delegate?.searchDataSource(strongSelf, showAlertWith: "error.empty_results".localized)
+                } else {
+                    strongSelf.delegate?.searchDataSource(strongSelf, successfulSearchWith: searchTerm)
                 }
             case .failure:
                 strongSelf.delegate?.searchDataSource(strongSelf, showAlertWith: "error.network".localized)

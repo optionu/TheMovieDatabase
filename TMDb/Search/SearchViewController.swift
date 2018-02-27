@@ -8,8 +8,9 @@ class SearchViewController: UITableViewController {
                         baseURLImage: URL(string: "https://image.tmdb.org/")!,
                         accessToken: "2696829a81b1b5827d515ff121700838")
 
-    let searchController = UISearchController(searchResultsController: nil)
-
+    var searchController: UISearchController?
+    var searchResultsController: SearchResultsController?
+    let searchHistory = SearchHistory()
     var dataSource: SearchDataSource?
     let tableDisplaySupport = SearchTableDisplaySupport()
 
@@ -18,9 +19,14 @@ class SearchViewController: UITableViewController {
 
         title = "search.title".localized
 
-        searchController.dimsBackgroundDuringPresentation = false;
-        tableView.tableHeaderView = searchController.searchBar
-        searchController.searchBar.delegate = self;
+        searchResultsController = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(withIdentifier: String(describing: SearchResultsController.self)) as? SearchResultsController
+        searchResultsController?.delegate = self
+        searchController = UISearchController(searchResultsController: searchResultsController)
+        searchController?.searchResultsUpdater = searchResultsController
+        searchController?.dimsBackgroundDuringPresentation = false;
+        tableView.tableHeaderView = searchController?.searchBar
+        searchController?.searchBar.delegate = self;
         definesPresentationContext = true
 
         let dataSource = SearchDataSource(client: client)
@@ -44,7 +50,14 @@ class SearchViewController: UITableViewController {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         dataSource?.loadFirst(searchTerm: searchBar.text)
-        searchController.isActive = false
+        searchController?.isActive = false
+    }
+}
+
+extension SearchViewController: SearchResultsControllerDelegate {
+    func searchResultsController(_ searchResultsController: SearchResultsController, searchFor searchTerm: String) {
+        dataSource?.loadFirst(searchTerm: searchTerm)
+        searchController?.isActive = false
     }
 }
 
@@ -55,6 +68,10 @@ extension SearchViewController: SearchDataSourceDelegate {
 
     func searchDataSource(_ searchDataSource: SearchDataSource, showAlertWith message: String) {
         showAlert(message)
+    }
+
+    func searchDataSource(_ searchDataSource: SearchDataSource, successfulSearchWith searchTerm: String) {
+        searchResultsController?.add(searchTerm)
     }
 }
 
