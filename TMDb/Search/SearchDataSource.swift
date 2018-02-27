@@ -67,7 +67,7 @@ extension SearchDataSource: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SearchTableCell
-        cell.configure(movies[indexPath.row])
+        cell.configure(movies[indexPath.row], client: client)
 
         return cell
     }

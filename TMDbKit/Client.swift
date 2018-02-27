@@ -28,12 +28,14 @@ public class Client {
         runRequest(for: resource, completion: completion)
     }
 
-    public func loadImage(imagePath: String, completion: @escaping (Result<UIImage>) -> Void) {
+    public func loadImage(imagePath: String, completion: @escaping (Result<UIImage>, String) -> Void) {
         let resource = Resource<UIImage>(basePath: baseURLImage,
-                                         path: "t/p/w92" + imagePath,
+                                         path: "t/p/w185" + imagePath,
                                          parameters: [:],
                                          parse: parseImage)
-        runRequest(for: resource, completion: completion)
+        runRequest(for: resource) { result in
+            completion(result, imagePath)
+        }
     }
 
     func runRequest<Model>(for resource: Resource<Model>, completion: @escaping (Result<Model>) -> Void) {
