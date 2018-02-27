@@ -9,11 +9,14 @@ class ClientTests: QuickSpec {
                 var client: Client?
 
                 beforeEach {
-                    client = Client(baseURL: URL(string: "http://api.themoviedb.org/3/")!, accessToken: "accessToken")
+                    client = Client(baseURL: URL(string: "http://api.themoviedb.org/3/")!,
+                                    baseURLImage: URL(string: "https://image.tmdb.org/")!,
+                                    accessToken: "accessToken")
                 }
 
                 it("has the right values") {
                     expect(client?.baseURL.absoluteString).to(equal("http://api.themoviedb.org/3/"))
+                    expect(client?.baseURLImage.absoluteString).to(equal("https://image.tmdb.org/"))
                     expect(client?.accessToken).to(equal("accessToken"))
                 }
 
@@ -35,6 +38,7 @@ class ClientTests: QuickSpec {
                 beforeEach {
                     session = URLSessionMock()
                     client = Client(baseURL: URL(string: "http://api.themoviedb.org/3/")!,
+                                    baseURLImage: URL(string: "https://image.tmdb.org/")!,
                                     accessToken: "accessToken",
                                     session: session!)
                     resource = Resource<Model>(basePath: URL(string: "https://api.themoviedb.org/3/")!,

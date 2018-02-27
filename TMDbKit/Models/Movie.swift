@@ -5,11 +5,13 @@ public struct Movie: Decodable {
     public let title: String?
     public let releaseDate: Date?
     public let posterPath: String?
+    public let overview: String?
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         title = try? container.decode(String.self, forKey: .title)
         posterPath = try? container.decode(String.self, forKey: .posterPath)
+        overview = try? container.decode(String.self, forKey: .overview)
 
         let dateString = try? container.decode(String.self, forKey: .releaseDate)
         releaseDate = dateString.flatMap(Movie.yyyyMMdd.date)
@@ -26,7 +28,8 @@ public struct Movie: Decodable {
 
     enum CodingKeys: String, CodingKey {
         case releaseDate = "release_date"
-        case title = "title"
+        case title
         case posterPath = "poster_path"
+        case overview
     }
 }

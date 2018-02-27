@@ -63,6 +63,7 @@ class JSONParserTests: QuickSpec {
                         expect(model.movies.first?.title).to(equal("Batman"))
                         expect(model.movies.first?.releaseDate).to(equal(releaseDate))
                         expect(model.movies.first?.posterPath).to(equal("/kBf3g9crrADGMc2AMAMlLBgSm2h.jpg"))
+                        expect(model.movies.first?.overview).to(beginWith("The Dark Knight of Gotham City"))
                     case .failure: fail("invalid result")
                     }
                 }
