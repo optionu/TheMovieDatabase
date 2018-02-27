@@ -8,11 +8,11 @@ public struct Movie: Decodable {
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        title = try container.decode(String.self, forKey: .title)
-        posterPath = try container.decode(String.self, forKey: .posterPath)
+        title = try? container.decode(String.self, forKey: .title)
+        posterPath = try? container.decode(String.self, forKey: .posterPath)
 
-        let dateString = try container.decode(String.self, forKey: .releaseDate)
-        releaseDate = Movie.yyyyMMdd.date(from: dateString)
+        let dateString = try? container.decode(String.self, forKey: .releaseDate)
+        releaseDate = dateString.flatMap(Movie.yyyyMMdd.date)
     }
 
     static let yyyyMMdd: DateFormatter = {

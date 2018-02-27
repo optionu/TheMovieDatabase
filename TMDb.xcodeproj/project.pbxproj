@@ -18,6 +18,8 @@
 		0386483F204476060019B24A /* TMDbKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 0386482F204476060019B24A /* TMDbKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03864842204476060019B24A /* TMDbKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386482D204476060019B24A /* TMDbKit.framework */; };
 		03864843204476060019B24A /* TMDbKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0386482D204476060019B24A /* TMDbKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		038FE0D920453B7300030568 /* SearchResultsUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038FE0D820453B7300030568 /* SearchResultsUpdater.swift */; };
+		038FE0DB2045418500030568 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038FE0DA2045418500030568 /* DataSource.swift */; };
 		03CB67AA204479D800BAF40F /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CB67A9204479D800BAF40F /* Resource.swift */; };
 		03CB67B420448AD400BAF40F /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CB67B320448AD400BAF40F /* Result.swift */; };
 		03CB67B820448BD100BAF40F /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CB67B720448BD100BAF40F /* ClientError.swift */; };
@@ -100,6 +102,8 @@
 		03864835204476060019B24A /* TMDbKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDbKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0386483C204476060019B24A /* ResourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceTests.swift; sourceTree = "<group>"; };
 		0386483E204476060019B24A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		038FE0D820453B7300030568 /* SearchResultsUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsUpdater.swift; sourceTree = "<group>"; };
+		038FE0DA2045418500030568 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		03CB67A9204479D800BAF40F /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		03CB67B320448AD400BAF40F /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		03CB67B720448BD100BAF40F /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 			children = (
 				031F67F820447497005A339E /* AppDelegate.swift */,
 				031F67FA20447497005A339E /* ViewController.swift */,
+				038FE0D820453B7300030568 /* SearchResultsUpdater.swift */,
+				038FE0DA2045418500030568 /* DataSource.swift */,
 				031F67FC20447497005A339E /* Main.storyboard */,
 				031F67FF20447497005A339E /* Assets.xcassets */,
 				031F680120447497005A339E /* LaunchScreen.storyboard */,
@@ -653,6 +659,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				031F67FB20447497005A339E /* ViewController.swift in Sources */,
+				038FE0D920453B7300030568 /* SearchResultsUpdater.swift in Sources */,
+				038FE0DB2045418500030568 /* DataSource.swift in Sources */,
 				031F67F920447497005A339E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
