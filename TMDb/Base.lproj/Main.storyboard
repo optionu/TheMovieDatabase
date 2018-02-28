@@ -121,6 +121,7 @@
                             <outlet property="delegate" destination="OXI-gR-8RY" id="0H0-Qx-nSP"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPI-ty-Qb4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
