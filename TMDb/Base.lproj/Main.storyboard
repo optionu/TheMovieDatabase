@@ -46,7 +46,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoH-SQ-nfo">
-                                            <rect key="frame" x="108" y="40.5" width="251" height="108.5"/>
+                                            <rect key="frame" x="108" y="42" width="251" height="108.5"/>
                                             <string key="text">khaks jdhaks jdhkajshdkjahs dkjahsd kjhsdk ahkda ksjhdk ajshdkahjsk djhask djahkdjhaksd kahd kahs kdhaksdhkashd kahsd kads kahjks djhaksdja ksjhdkajhsd kjahsdk adhs</string>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
@@ -59,13 +59,12 @@
                                         <constraint firstItem="KoH-SQ-nfo" firstAttribute="leading" secondItem="VBE-sQ-LR3" secondAttribute="trailing" constant="8" id="F6S-xA-GLf"/>
                                         <constraint firstItem="0ma-Rw-u11" firstAttribute="top" secondItem="0Kk-sw-BJi" secondAttribute="top" id="KAf-AD-jhv"/>
                                         <constraint firstItem="rg6-OC-uHF" firstAttribute="leading" secondItem="VBE-sQ-LR3" secondAttribute="trailing" constant="8" id="O0W-lF-E9z"/>
+                                        <constraint firstItem="KoH-SQ-nfo" firstAttribute="top" secondItem="rg6-OC-uHF" secondAttribute="bottom" id="OA6-vO-NpM"/>
                                         <constraint firstItem="0ma-Rw-u11" firstAttribute="leading" secondItem="VBE-sQ-LR3" secondAttribute="trailing" constant="8" id="T8u-9w-76c"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="rg6-OC-uHF" secondAttribute="trailing" constant="16" id="Ur3-OX-Hhc"/>
                                         <constraint firstAttribute="bottom" secondItem="VBE-sQ-LR3" secondAttribute="bottom" id="bxV-Ut-c7Q"/>
                                         <constraint firstItem="KoH-SQ-nfo" firstAttribute="leading" secondItem="VBE-sQ-LR3" secondAttribute="trailing" constant="8" id="f4b-sY-uT8"/>
                                         <constraint firstItem="VBE-sQ-LR3" firstAttribute="top" secondItem="0Kk-sw-BJi" secondAttribute="top" id="faR-9e-Sfs"/>
-                                        <constraint firstAttribute="bottom" secondItem="KoH-SQ-nfo" secondAttribute="bottom" id="iwC-nm-bLd"/>
-                                        <constraint firstAttribute="bottom" secondItem="KoH-SQ-nfo" secondAttribute="bottom" id="kXq-oh-XJe"/>
                                         <constraint firstItem="rg6-OC-uHF" firstAttribute="top" secondItem="0ma-Rw-u11" secondAttribute="bottom" id="lLk-cF-wWf"/>
                                         <constraint firstAttribute="trailing" secondItem="KoH-SQ-nfo" secondAttribute="trailing" constant="16" id="wNB-O5-VPr"/>
                                     </constraints>
